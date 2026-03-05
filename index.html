@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nashville Bach Mural Tour</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #e8407a;
+    --hot: #ff1a6d;
+    --blush: #fce8f0;
+    --gold: #c9a84c;
+    --gold-light: #f5e6c0;
+    --black: #0f0a0c;
+    --cream: #fdf8f5;
+    --muted: #7a6672;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    color: white;
+    padding: 70px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(232,64,122,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--pink);
+  }
+
+  .hero-sub {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  .pill.hot { background: var(--pink); border-color: var(--pink); color: white; }
+
+  /* INTRO BANNER */
+  .intro-banner {
+    background: var(--gold-light);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #5a4a2a;
+    line-height: 1.6;
+  }
+
+  .intro-banner a {
+    color: var(--pink);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  /* NEIGHBORHOOD SECTION */
+  .neighborhood {
+    padding: 50px 0 20px;
+  }
+
+  .neigh-header {
+    padding: 0 40px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  .neigh-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--blush);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .neigh-text .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-weight: 500;
+  }
+
+  .neigh-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--black);
+  }
+
+  .neigh-text .desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* STOP CARD */
+  .stop-card {
+    padding: 28px 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 20px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+
+  .stop-card:hover { background: rgba(232,64,122,0.03); }
+
+  .stop-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--pink);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .stop-num.gold { background: var(--gold); }
+
+  .stop-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .stop-addr {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .stop-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #3a2e35;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .tag-bach { background: #ffe0ef; color: #c0185a; }
+  .tag-walk { background: #e6f4ea; color: #1a6e30; }
+  .tag-line { background: #fff3cd; color: #7a5500; }
+  .tag-hidden { background: #e8eaf6; color: #3949ab; }
+  .tag-group { background: #fce8f0; color: #aa1452; }
+
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--black);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, transform 0.15s;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  .map-btn:hover { background: var(--pink); transform: translateY(-1px); }
+  .map-btn svg { flex-shrink: 0; }
+
+  /* DIVIDER */
+  .drive-divider {
+    background: var(--blush);
+    border-left: 4px solid var(--pink);
+    margin: 0 40px;
+    padding: 10px 18px;
+    font-size: 0.8rem;
+    color: var(--pink);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* TIPS BOX */
+  .tips-section {
+    background: var(--black);
+    color: white;
+    padding: 50px 40px;
+    margin-top: 30px;
+  }
+
+  .tips-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .tips-section h2 em { color: var(--gold); font-style: italic; }
+
+  .tips-section .sub {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .tip-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .tip-icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+  .tip-card h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+
+  .tip-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--blush);
+    border-top: 3px solid var(--pink);
+    padding: 28px 40px;
+    text-align: center;
+  }
+
+  .footer p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--pink);
+  }
+
+  .footer small {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer a { color: var(--pink); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 24px 44px; }
+    .neigh-header, .stop-card, .drive-divider { padding-left: 24px; padding-right: 24px; }
+    .stop-card { grid-template-columns: 44px 1fr; }
+    .map-btn { display: none; }
+    .tips-section, .footer { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Nashville, Tennessee</div>
+  <h1>She Said <em>Yes</em><br>Now She Sees the Art</h1>
+  <div class="hero-sub">A Self-Guided Driving Mural Tour &nbsp;·&nbsp; 9 Girls &nbsp;·&nbsp; All Free</div>
+  <div class="hero-pills">
+    <span class="pill hot">🎉 Bach Party Edition</span>
+    <span class="pill">~3–4 hrs total</span>
+    <span class="pill">10 stops</span>
+    <span class="pill">5 neighborhoods</span>
+  </div>
+</div>
+
+<!-- INTRO BANNER -->
+<div class="intro-banner">
+  📍 Use this guide as your itinerary, then pull up the <a href="https://www.google.com/maps/d/u/0/viewer?mid=1ffKBMfu1BfCt0tgtOTuBMNZUuy-p45lc&ll=36.14981556777252,-86.81116698018053&z=13" target="_blank">Salt Water Vibes Custom Google Map</a> for bonus murals and hidden gems in between stops.
+  <br>💡 <strong>Pro tip:</strong> Start early (9 AM) — popular murals get crowded by mid-morning, especially on weekends.
+</div>
+
+
+<!-- ======================== NEIGHBORHOOD 1: THE GULCH ======================== -->
+<div class="neighborhood">
+  <div class="neigh-header">
+    <div class="neigh-number">01</div>
+    <div class="neigh-text">
+      <div class="label">First Stop &nbsp;·&nbsp; ~9:00 AM</div>
+      <h2>The Gulch</h2>
+      <div class="desc">Park once and hit two stops on foot — this is the bach party mural epicenter.</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-num">1</div>
+    <div class="stop-info">
+      <h3>What Lifts You — Angel Wings</h3>
+      <div class="stop-addr">302 11th Ave S, Nashville, TN 37203</div>
+      <div class="stop-desc">
+        The most iconic mural in all of Nashville. Kelsey Montague's intricate lace-patterned wings in white on black are unmistakable — and Nashville-specific, with guitars woven into the feathers. There's also a tiny set of baby wings tucked to the side for a silly second shot. Come early; there's often a line by 10 AM.
+      </div>
+      <div class="tags">
+        <span class="tag tag-line">⏱ Can have a line</span>
+        <span class="tag tag-group">👯 Great for group</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=302+11th+Ave+S,+Nashville,+TN+37203" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+
+  <div class="drive-divider">🚶 2 min walk south</div>
+
+  <div class="stop-card">
+    <div class="stop-num">2</div>
+    <div class="stop-info">
+      <h3>Candy Hearts Mural</h3>
+      <div class="stop-addr">601 8th Ave S, Nashville, TN 37203 (Finnley's Boutique)</div>
+      <div class="stop-desc">
+        This one was literally commissioned with bachelorette parties in mind. The giant candy hearts say things like "Bach Please" and "Engaged AF" — it's colorful, the wall is big enough for all 9 of you, and the boutique next door is worth a quick browse. An absolute must for the group photo of the trip.
+      </div>
+      <div class="tags">
+        <span class="tag tag-bach">💍 Bach Essential</span>
+        <span class="tag tag-group">👯 Full group shot</span>
+        <span class="tag tag-walk">🚶 Walk from Wings</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=601+8th+Ave+S,+Nashville,+TN+37203" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+
+  <div class="drive-divider">🚶 Short walk — stay in the Gulch</div>
+
+  <div class="stop-card">
+    <div class="stop-num">3</div>
+    <div class="stop-info">
+      <h3>Acoustic Skyline Mural</h3>
+      <div class="stop-addr">915 Division St, Nashville, TN 37203</div>
+      <div class="stop-desc">
+        A quintessentially Nashville mural by artist Allison Johnson — a stunning tribute to guitar players and Music City's soul. It's quieter than the Wings wall, so you'll likely have it to yourselves. If anyone's hungry, Biscuit Love and Milk and Honey are steps away.
+      </div>
+      <div class="tags">
+        <span class="tag tag-hidden">✨ Less crowded</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=915+Division+St,+Nashville,+TN+37203" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+</div>
+
+
+<!-- ======================== NEIGHBORHOOD 2: BROADWAY ======================== -->
+<div class="neighborhood">
+  <div class="neigh-header">
+    <div class="neigh-number">02</div>
+    <div class="neigh-text">
+      <div class="label">Drive ~5 min &nbsp;·&nbsp; ~10:00 AM</div>
+      <h2>Broadway</h2>
+      <div class="desc">One mural, but it's country music royalty — and you're on Honky Tonk Row.</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-num gold">4</div>
+    <div class="stop-info">
+      <h3>Country Legends Mural</h3>
+      <div class="stop-addr">428 Broadway, Nashville, TN 37203 (side of Legends Corner)</div>
+      <div class="stop-desc">
+        On the side wall of the legendary Legends Corner bar, artist Tim Davis painted portraits of the Mount Rushmore of country music: Dolly Parton, Loretta Lynn, Merle Haggard, Willie Nelson, Johnny Cash, and more. Street parking nearby. If the group wants to pop in for a quick drink, Legends Corner has no cover charge and live music starts at 10 AM.
+      </div>
+      <div class="tags">
+        <span class="tag tag-bach">🎸 Country Iconic</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=428+Broadway,+Nashville,+TN+37203" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+</div>
+
+
+<!-- ======================== NEIGHBORHOOD 3: 12 SOUTH ======================== -->
+<div class="neighborhood">
+  <div class="neigh-header">
+    <div class="neigh-number">03</div>
+    <div class="neigh-text">
+      <div class="label">Drive ~10 min south &nbsp;·&nbsp; ~10:30 AM</div>
+      <h2>12 South</h2>
+      <div class="desc">Park once, walk the whole strip. Six murals in under 20 minutes, plus great brunch spots.</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-num">5</div>
+    <div class="stop-info">
+      <h3>I Believe in Nashville Mural</h3>
+      <div class="stop-addr">2702 12th Ave S, Nashville, TN 37204</div>
+      <div class="stop-desc">
+        THE mural. Adrien Saporiti's "I Believe in Nashville" is probably the most-photographed spot in Music City. Bold black lettering, perfectly photogenic on a sunny day. There's a parking lot directly across the street. Go early in your 12 South loop to beat any line.
+      </div>
+      <div class="tags">
+        <span class="tag tag-line">⏱ Can have a line</span>
+        <span class="tag tag-group">👯 Must-do group shot</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=2702+12th+Ave+S,+Nashville,+TN+37204" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+
+  <div class="drive-divider">🚶 Walk the 12th Ave strip — 5 more murals within 0.3 miles</div>
+
+  <div class="stop-card">
+    <div class="stop-num">6</div>
+    <div class="stop-info">
+      <h3>Draper James Window Mural</h3>
+      <div class="stop-addr">2608 12th Ave S, Nashville, TN 37204</div>
+      <div class="stop-desc">
+        Reese Witherspoon's southern lifestyle boutique has a charming white-and-blue striped window mural with a convenient white bench out front — a classic, clean, preppy photo op. It's become an unofficial Nashville landmark for girls trips. Step inside after for some very Nashville shopping.
+      </div>
+      <div class="tags">
+        <span class="tag tag-bach">🌸 Very Bach</span>
+        <span class="tag tag-walk">🚶 Walk from stop 5</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=2608+12th+Ave+S,+Nashville,+TN+37204" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+</div>
+
+
+<!-- ======================== NEIGHBORHOOD 4: WEST NASHVILLE ======================== -->
+<div class="neighborhood">
+  <div class="neigh-header">
+    <div class="neigh-number">04</div>
+    <div class="neigh-text">
+      <div class="label">Drive ~12 min west &nbsp;·&nbsp; ~11:30 AM</div>
+      <h2>West Nashville</h2>
+      <div class="desc">The best hidden gem on the tour — a block-long rotating gallery of street art.</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-num">7</div>
+    <div class="stop-info">
+      <h3>Off The Wall Nashville</h3>
+      <div class="stop-addr">3020 Charlotte Ave, Nashville, TN 37209</div>
+      <div class="stop-desc">
+        A 1,200-foot stretch of rotating murals by different artists — new murals go up regularly so it always has something fresh. Street parking is easy along Charlotte Ave. Walk the block, pick your favorite backdrop, and take your time. Check offthewallnashville.com before you go to preview the current lineup.
+      </div>
+      <div class="tags">
+        <span class="tag tag-hidden">✨ Hidden Gem</span>
+        <span class="tag tag-group">👯 Huge wall, easy group shots</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=3020+Charlotte+Ave,+Nashville,+TN+37209" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+</div>
+
+
+<!-- ======================== NEIGHBORHOOD 5: EAST NASHVILLE ======================== -->
+<div class="neighborhood">
+  <div class="neigh-header">
+    <div class="neigh-number">05</div>
+    <div class="neigh-text">
+      <div class="label">Drive ~15 min east &nbsp;·&nbsp; ~12:30 PM</div>
+      <h2>East Nashville</h2>
+      <div class="desc">The artsy, hip finale — two great murals close together, plus lunch options everywhere.</div>
+    </div>
+  </div>
+
+  <div class="stop-card">
+    <div class="stop-num">8</div>
+    <div class="stop-info">
+      <h3>Dolly Parton Mural</h3>
+      <div class="stop-addr">1006 Forrest Ave, Nashville, TN 37206</div>
+      <div class="stop-desc">
+        It's Dolly. On a wall. In Nashville. Artist Kim Radford's portrait of the queen of country is a must-stop, especially for a girls group. It's in a quieter residential pocket of East Nashville so you'll likely have it to yourselves. Start here, then walk or drive 5 minutes to the hot air balloon.
+      </div>
+      <div class="tags">
+        <span class="tag tag-bach">👑 Dolly is forever a Bach stop</span>
+        <span class="tag tag-hidden">✨ Low crowds</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=1006+Forrest+Ave,+Nashville,+TN+37206" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+
+  <div class="drive-divider">🚗 ~5 min drive northeast</div>
+
+  <div class="stop-card">
+    <div class="stop-num gold">9</div>
+    <div class="stop-info">
+      <h3>What Lifts You — Hot Air Balloon 🎈</h3>
+      <div class="stop-addr">1032 W Eastland Ave, Nashville, TN 37206</div>
+      <div class="stop-desc">
+        The perfect finale. Kelsey Montague's largest Nashville mural — a giant hot air balloon with a real basket you can physically climb into for photos. Almost no line, ever, compared to the Wings in the Gulch. Check the alleyway nearby for bonus smaller murals. End the tour here, then head to Barista Parlor or any of the East Nashville spots for a well-deserved coffee or lunch.
+      </div>
+      <div class="tags">
+        <span class="tag tag-bach">🎈 Stand INSIDE the basket!</span>
+        <span class="tag tag-hidden">✨ Rarely crowded</span>
+        <span class="tag tag-group">👯 Full group</span>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=1032+W+Eastland+Ave,+Nashville,+TN+37206" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Maps
+    </a>
+  </div>
+</div>
+
+
+<!-- TIPS -->
+<div class="tips-section">
+  <div class="sub">Before You Go</div>
+  <h2>Tips for <em>The Van Crew</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <h4>Go Early</h4>
+      <p>The Wings and I Believe in Nashville murals get lines by 10–11 AM on weekends. Hit the Gulch first at 9 AM and you'll walk right up.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🅿️</div>
+      <h4>Parking the Transit</h4>
+      <p>The Gulch has a paid lot on 11th Ave. 12 South has a lot directly across from the I Believe mural. Off The Wall and East Nashville are street parking — easy.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🗺️</div>
+      <h4>Bonus Murals</h4>
+      <p>Pull up the <a href="https://www.google.com/maps/d/u/0/viewer?mid=1ffKBMfu1BfCt0tgtOTuBMNZUuy-p45lc" target="_blank" style="color:var(--gold)">Salt Water Vibes Google Map</a> for extras you find along the way — the city is full of them.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📸</div>
+      <h4>Photo Order</h4>
+      <p>Bring one person whose sole job is photographer at each stop. Designate before you leave — it makes each stop faster and the photos way better.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🍳</div>
+      <h4>Fuel Up in 12 South</h4>
+      <p>Five Daughters Bakery (donuts), Edley's BBQ, and Milk and Honey are all within the 12 South stretch. Build in 30–45 min for a bite.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💡</div>
+      <h4>Lighting Tips</h4>
+      <p>Morning light (9–11 AM) is best for The Gulch since the walls face east. 12 South gets great afternoon light. East Nashville pops around midday.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Happy Bach-ing, y'all 🥂</p>
+  <small>All murals are free · Accessible by car · Nashville, TN &nbsp;·&nbsp; Bonus map: <a href="https://www.google.com/maps/d/u/0/viewer?mid=1ffKBMfu1BfCt0tgtOTuBMNZUuy-p45lc" target="_blank">Salt Water Vibes Nashville Murals</a></small>
+</div>
+
+</body>
+</html>
