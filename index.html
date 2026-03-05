@@ -348,6 +348,180 @@
 
   .footer a { color: var(--pink); }
 
+  /* BONUS TOURS SECTION */
+  .bonus-section {
+    background: var(--cream);
+    padding: 60px 0 20px;
+    border-top: 4px solid var(--black);
+  }
+
+  .bonus-header {
+    padding: 0 40px 40px;
+    text-align: center;
+  }
+
+  .bonus-header .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .bonus-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .bonus-header h2 em { color: var(--pink); font-style: italic; }
+
+  .bonus-header p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-top: 10px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .bonus-tour {
+    border: 2px solid rgba(0,0,0,0.09);
+    border-radius: 16px;
+    margin: 0 40px 40px;
+    overflow: hidden;
+  }
+
+  .bonus-tour-header {
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .bonus-tour-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bonus-tour-meta .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .bonus-tour-meta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--black);
+    margin: 3px 0 5px;
+  }
+
+  .bonus-tour-meta .meta-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    background: var(--blush);
+    color: var(--pink);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  .meta-pill.dark {
+    background: var(--black);
+    color: white;
+  }
+
+  .meta-pill.gold {
+    background: var(--gold-light);
+    color: #7a5500;
+  }
+
+  .bonus-stop {
+    padding: 20px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .bonus-stop:last-child { border-bottom: none; }
+  .bonus-stop:hover { background: rgba(232,64,122,0.02); }
+
+  .bonus-stop-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--black);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bonus-stop-num.pink-bg { background: var(--pink); }
+  .bonus-stop-num.gold-bg { background: var(--gold); }
+
+  .bonus-stop-info h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: var(--black);
+  }
+
+  .bonus-stop-addr {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  .bonus-stop-desc {
+    font-size: 0.87rem;
+    color: #3a2e35;
+    line-height: 1.6;
+  }
+
+  .bonus-mini-divider {
+    margin: 0 28px;
+    padding: 7px 0;
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .crazy-tour { border-color: var(--pink); }
+  .crazy-tour .bonus-tour-header { background: var(--black); color: white; }
+  .crazy-tour .bonus-tour-meta h3 { color: white; }
+  .crazy-tour .bonus-tour-meta .label { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 600px) {
+    .bonus-tour { margin: 0 16px 32px; }
+    .bonus-header { padding: 0 24px 32px; }
+    .bonus-stop { grid-template-columns: 34px 1fr; }
+    .bonus-stop .map-btn { display: none; }
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to { opacity: 1; transform: translateY(0); }
@@ -408,7 +582,7 @@
         <span class="tag tag-group">👯 Great for group</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=302+11th+Ave+S,+Nashville,+TN+37203" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/VYEK3feAyTHdd17z8" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -430,7 +604,7 @@
         <span class="tag tag-walk">🚶 Walk from Wings</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=601+8th+Ave+S,+Nashville,+TN+37203" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/UADb2sJRWboS5i2c7" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -481,7 +655,7 @@
         <span class="tag tag-bach">🎸 Country Iconic</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=428+Broadway,+Nashville,+TN+37203" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/CvqX2UMEocsyevDz9" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -513,7 +687,7 @@
         <span class="tag tag-group">👯 Must-do group shot</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=2702+12th+Ave+S,+Nashville,+TN+37204" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/GDoaDpH9AdmHby1Z7" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -534,7 +708,7 @@
         <span class="tag tag-walk">🚶 Walk from stop 5</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=2608+12th+Ave+S,+Nashville,+TN+37204" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/MCqz8GqjnjGU6Kdf8" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -566,7 +740,7 @@
         <span class="tag tag-group">👯 Huge wall, easy group shots</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=3020+Charlotte+Ave,+Nashville,+TN+37209" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/sttpFyvZDugVdbBMA" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -620,7 +794,7 @@
         <span class="tag tag-group">👯 Full group</span>
       </div>
     </div>
-    <a class="map-btn" href="https://maps.google.com/?q=1032+W+Eastland+Ave,+Nashville,+TN+37206" target="_blank">
+    <a class="map-btn" href="https://maps.app.goo.gl/StG8e6DciZaRtwQF6" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       Maps
     </a>
@@ -664,6 +838,241 @@
       <p>Morning light (9–11 AM) is best for The Gulch since the walls face east. 12 South gets great afternoon light. East Nashville pops around midday.</p>
     </div>
   </div>
+</div>
+
+<!-- ======================== BONUS TOURS ======================== -->
+<div class="bonus-section">
+  <div class="bonus-header">
+    <div class="label">When the Group Needs a Breather</div>
+    <h2>Three More <em>Drives</em> for the Van</h2>
+    <p>No bars, no planning required — just roll the windows down and vibe. Each one is 1–2 hours and totally free to do from the car.</p>
+  </div>
+
+
+  <!-- ====== TOUR A: MUSIC ROW ====== -->
+  <div class="bonus-tour">
+    <div class="bonus-tour-header">
+      <div class="bonus-tour-icon">🎸</div>
+      <div class="bonus-tour-meta">
+        <div class="label">Bonus Tour A</div>
+        <h3>Music Row & Nashville Icons</h3>
+        <div class="meta-pills">
+          <span class="meta-pill">~1.5 hrs</span>
+          <span class="meta-pill gold">All free from the car</span>
+          <span class="meta-pill">Downtown loop</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num">1</div>
+      <div class="bonus-stop-info">
+        <h4>Walk of Fame Park</h4>
+        <div class="bonus-stop-addr">121 4th Ave S, Nashville, TN 37201</div>
+        <div class="bonus-stop-desc">Start here. Bronze stars embedded in the sidewalk honor country legends — Dolly, Cash, Garth, Loretta, and dozens more. It's free, open, and right on the edge of the action. A short walk from parking on 4th Ave.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=121+4th+Ave+S,+Nashville,+TN+37201" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~5 min northwest up 4th Ave</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num">2</div>
+      <div class="bonus-stop-info">
+        <h4>Ryman Auditorium — The Mother Church</h4>
+        <div class="bonus-stop-addr">116 5th Ave N, Nashville, TN 37219</div>
+        <div class="bonus-stop-desc">Even from the outside, this place has gravity. The original home of the Grand Ole Opry — built in 1892 as a church — is one of the most legendary music venues in the world. Drive past or park and photograph the stained glass from the sidewalk. Free to admire; self-guided tours available inside for a fee.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=116+5th+Ave+N,+Nashville,+TN+37219" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~5 min southwest on Division St</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num">3</div>
+      <div class="bonus-stop-info">
+        <h4>Music Row — The Actual Row</h4>
+        <div class="bonus-stop-addr">16th & 17th Ave S, Nashville, TN 37203</div>
+        <div class="bonus-stop-desc">This is where country music is made. Drive slowly up 16th and 17th Ave South and you'll pass the studios, publishers, and labels responsible for basically every country hit since the 1950s. RCA Studio B — where Elvis, Dolly, Roy Orbison, and Chet Atkins recorded — is at 1611 Roy Acuff Place. The exterior is free to see any time.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Music+Row,+Nashville,+TN+37203" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~3 min, stay on Division St going west</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num">4</div>
+      <div class="bonus-stop-info">
+        <h4>Musica Roundabout Sculpture</h4>
+        <div class="bonus-stop-addr">Music Row Roundabout, Demonbreun St & 16th Ave, Nashville, TN 37212</div>
+        <div class="bonus-stop-desc">Right at the center of the Music Row roundabout stands "Musica" — nine large bronze figures dancing and celebrating music. They are also completely naked. It's unexpected, impressive, and very Nashville. You'll drive right around it as you exit Music Row. You're welcome.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Music+Row+Roundabout+Nashville+TN" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ====== TOUR B: STARS' HOMES ====== -->
+  <div class="bonus-tour">
+    <div class="bonus-tour-header">
+      <div class="bonus-tour-icon">⭐</div>
+      <div class="bonus-tour-meta">
+        <div class="label">Bonus Tour B</div>
+        <h3>Stars' Homes Drive</h3>
+        <div class="meta-pills">
+          <span class="meta-pill">~1.5–2 hrs</span>
+          <span class="meta-pill gold">All free, stay in the car</span>
+          <span class="meta-pill">South Nashville suburbs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num pink-bg">1</div>
+      <div class="bonus-stop-info">
+        <h4>Taylor Swift's Estate — Forest Hills</h4>
+        <div class="bonus-stop-addr">Forest Hills neighborhood, Nashville, TN 37215</div>
+        <div class="bonus-stop-desc">Taylor's main Nashville estate is in the upscale Forest Hills neighborhood, about 10 minutes south of downtown. The compound is gated and heavily wooded — you won't see much — but the neighborhood itself is beautiful to drive through, and you can say you did it. She's owned several properties here over the years. Drive along Curtiswood Lane for the most scenic stretch.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Forest+Hills,+Nashville,+TN+37215" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~10 min south on I-65 to Brentwood</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num pink-bg">2</div>
+      <div class="bonus-stop-info">
+        <h4>Dolly Parton's Brentwood Home</h4>
+        <div class="bonus-stop-addr">Brentwood, TN 37027</div>
+        <div class="bonus-stop-desc">Dolly's Tennessee home is in Brentwood, a beautifully manicured suburb just south of Nashville proper. It's private but the neighborhood is peaceful and gorgeous to drive through. While you're here, cruise through the wider Brentwood area — you'll pass the kinds of estates that basically every major country star calls home.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Brentwood,+TN+37027" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Stay in Brentwood, head toward Belle Meade</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num pink-bg">3</div>
+      <div class="bonus-stop-info">
+        <h4>Belle Meade — Celebrity Row</h4>
+        <div class="bonus-stop-addr">Belle Meade, Nashville, TN 37205</div>
+        <div class="bonus-stop-desc">Belle Meade is Nashville's oldest and most exclusive enclave — the kind of neighborhood where Reese Witherspoon, Martina McBride, and a rotating cast of country royalty have called home. The estates are massive and many are actually visible from the road. Drive slowly down Belle Meade Blvd for the main strip of jaw-dropping homes.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Belle+Meade+Blvd,+Nashville,+TN+37205" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~5 min east on West End Ave</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num pink-bg">4</div>
+      <div class="bonus-stop-info">
+        <h4>Keith Urban & Nicole Kidman — Northumberland</h4>
+        <div class="bonus-stop-addr">Northumberland Dr, Nashville, TN 37215</div>
+        <div class="bonus-stop-desc">Keith and Nicole's gated compound in the Northumberland community is one of the more visible celebrity estates in the area — you can see the gates and perimeter from the road. After, loop back through Forest Hills on the way back toward downtown for a complete star-gazing lap of South Nashville's most exclusive zip codes.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Northumberland+Dr,+Nashville,+TN+37215" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ====== TOUR C: WTF NASHVILLE ====== -->
+  <div class="bonus-tour crazy-tour">
+    <div class="bonus-tour-header">
+      <div class="bonus-tour-icon">🤡</div>
+      <div class="bonus-tour-meta">
+        <div class="label">Bonus Tour C — The Unhinged One</div>
+        <h3>The WTF Nashville Tour</h3>
+        <div class="meta-pills">
+          <span class="meta-pill dark">~1–1.5 hrs</span>
+          <span class="meta-pill dark">Chaotic energy</span>
+          <span class="meta-pill dark">Free &amp; weird</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num gold-bg">1</div>
+      <div class="bonus-stop-info">
+        <h4>The Parthenon — Full-Scale Ancient Greek Temple in Tennessee</h4>
+        <div class="bonus-stop-addr">2500 West End Ave, Nashville, TN 37203 (Centennial Park)</div>
+        <div class="bonus-stop-desc">Nashville's most baffling landmark: a full-scale, archaeologically accurate replica of the Parthenon sitting in a city park. Built in 1897 for the Tennessee Centennial Exposition, it was supposed to be temporary — but nobody wanted to take it down. Inside is a 42-foot gold-plated statue of Athena, the tallest indoor sculpture in the Western world. The outside is completely free to see any time. Just pull up, stare, and question everything.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=2500+West+End+Ave,+Nashville,+TN+37203" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~5 min east back toward Music Row</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num gold-bg">2</div>
+      <div class="bonus-stop-info">
+        <h4>The "Musica" Naked People Roundabout</h4>
+        <div class="bonus-stop-addr">Demonbreun St & 16th Ave S, Nashville, TN 37212</div>
+        <div class="bonus-stop-desc">Right in the middle of the Music Row roundabout is a massive bronze sculpture of nine nude figures dancing and playing music. It's called "Musica," it's been there since 2003, and nobody who drives around it for the first time is prepared. You literally circle it in the car. Perfect for a dramatic slow drive-by with all windows down.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Musica+Sculpture+Nashville+TN" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~8 min south on Nolensville Pike</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num gold-bg">3</div>
+      <div class="bonus-stop-info">
+        <h4>The Giant Cowboy Boot Water Tower</h4>
+        <div class="bonus-stop-addr">Glencliff neighborhood, Nashville, TN 37211 (near Nolensville Pike & Harding Pl)</div>
+        <div class="bonus-stop-desc">There is a water tower in South Nashville painted to look like a giant cowboy boot. That's it. That's the stop. It's enormous, it's visible from the road, and it's one of the most authentically Nashville things in existence. Technically it's officially called the "Glencliff Water Tower" but everyone just calls it the boot.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=Glencliff+Water+Tower+Nashville+TN" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+
+    <div class="bonus-mini-divider">🚗 Drive ~12 min back north to Madison</div>
+
+    <div class="bonus-stop">
+      <div class="bonus-stop-num gold-bg">4</div>
+      <div class="bonus-stop-info">
+        <h4>Santa's Pub — Year-Round Christmas Karaoke Trailer</h4>
+        <div class="bonus-stop-addr">2225 Bransford Ave, Nashville, TN 37204</div>
+        <div class="bonus-stop-desc">Santa's Pub is a double-wide trailer permanently decorated for Christmas, open year-round, serving cheap beer and hosting karaoke every single night. There is no sign. It is cash only. It is one of the most beloved dive bars in America, featured in countless "best bars" lists nationwide. You don't have to go in (but you absolutely should). Even just driving past and seeing the Christmas lights blazing in the middle of summer is peak Nashville weird.</div>
+      </div>
+      <a class="map-btn" href="https://maps.google.com/?q=2225+Bransford+Ave,+Nashville,+TN+37204" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Maps
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <!-- FOOTER -->
